@@ -1,1 +1,25 @@
-<p>detected-devices works!</p>
+<div class="container my-5">
+  <div class="list-group">
+    <a
+      *ngFor="let device of detectedDevices$ | async; let i = index"
+      (click)="onDeviceClicked(device)"
+      class="list-group-item list-group-item-action list-group-item-success"
+      [ngClass]="{
+        disabled: !device.username || !device.pushToken,
+        'list-group-item-success': i % 2 === 0,
+        'list-group-item-info': i % 2 === 1
+      }"
+    >
+      <div class="d-flex justify-content-around align-items-center">
+        <div class="d-flex flex-column text-center">
+          <h4>Username</h4>
+          <span class="device-value">{{ device.username || 'Unknown' }}</span>
+        </div>
+        <div class="d-flex flex-column text-center">
+          <h4>MAC</h4>
+          <span class="device-value">{{ device.mac }}</span>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
