@@ -6,7 +6,6 @@ import { DeviceIdentifier } from 'core/types/device-identifier';
 import { map } from 'rxjs/operators';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModalTimePickerComponent } from 'app/detected-devices/modal-time-picker/modal-time-picker.component';
-import { MessagingService } from 'core/services/messaging.service';
 
 @AutoUnsubscribe()
 @Component({
@@ -19,8 +18,7 @@ export class DetectedDevicesComponent implements OnInit, OnDestroy {
 
   constructor(
     private readonly httpWrapper: HttpWrapperService,
-    private readonly modalService: NgbModal,
-    private readonly messagingService: MessagingService,
+    private readonly modalService: NgbModal // private readonly messagingService: MessagingService,
   ) {}
 
   public ngOnInit(): void {
